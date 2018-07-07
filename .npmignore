@@ -1,0 +1,7 @@
+coverage/
+src/
+.babelrc
+.gitignore
+bump.js
+webpack.config.js
+yarn.lock

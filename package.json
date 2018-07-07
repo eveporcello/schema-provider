@@ -1,0 +1,40 @@
+{
+  "name": "@highfivesfoundation/schema-provider",
+  "version": "0.0.0",
+  "description": "Home of the High Fives Foundation GraphQL Schema.",
+  "main": "index.js",
+  "author": "Alex Banks @MoonTahoe",
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/HighFivesFoundation/schema-provider#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HighFivesFoundation/schema-provider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HighFivesFoundation/schema-provider/issues"
+  },
+  "keywords": [
+    "high fives",
+    "graphql",
+    "schema"
+  ],
+  "scripts": {
+    "prepublish": "yarn build && node bump",
+    "build": "webpack -p",
+    "pretest": "yarn build",
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.2.0",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-graphql-loader": "^1.0.0"
+  }
+}
