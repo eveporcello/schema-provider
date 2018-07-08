@@ -1,0 +1,10 @@
+type NewsStory {
+    id: ID!
+    title: String!
+    description: String
+    url: String!
+}
+
+type Query {
+    allNews(start: Int count: Int): [NewsStory!]!
+}
