@@ -23,7 +23,7 @@
     "h5-mock-server": "server.js"
   },
   "scripts": {
-    "prepublish": "yarn build && node bump",
+    "prepublish": "yarn build",
     "build": "webpack -p",
     "test": "jest",
     "test:watch": "jest --watch"
