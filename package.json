@@ -19,6 +19,9 @@
     "graphql",
     "schema"
   ],
+  "bin": {
+    "h5-mock-server": "server.jsh5-mo"
+  },
   "scripts": {
     "prepublish": "yarn build && node bump",
     "build": "webpack -p",
