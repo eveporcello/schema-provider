@@ -25,7 +25,6 @@
   "scripts": {
     "prepublish": "yarn build && node bump",
     "build": "webpack -p",
-    "pretest": "yarn build",
     "test": "jest",
     "test:watch": "jest --watch"
   },
