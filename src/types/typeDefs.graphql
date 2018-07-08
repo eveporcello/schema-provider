@@ -5,11 +5,6 @@ type NewsStory {
     url: String!
 }
 
-enum TravisAttempts {
-    FIRST
-    SECOND
-}
-
 type Query {
     allNews(start: Int count: Int): [NewsStory!]!
 }
