@@ -2,7 +2,7 @@
   "name": "@highfivesfoundation/schema-provider",
   "version": "0.0.6",
   "description": "Home of the High Fives Foundation GraphQL Schema.",
-  "main": "index.js",
+  "main": "server.js",
   "author": "Alex Banks @MoonTahoe",
   "license": "MIT",
   "private": false,
@@ -20,7 +20,7 @@
     "schema"
   ],
   "bin": {
-    "h5-mock-server": "src/server.js"
+    "h5-mock-server": "server.js"
   },
   "scripts": {
     "prepublish": "yarn build && node bump",
