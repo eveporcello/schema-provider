@@ -1,6 +1,6 @@
 {
   "name": "@highfivesfoundation/schema-provider",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Home of the High Fives Foundation GraphQL Schema.",
   "main": "index.js",
   "author": "Alex Banks @MoonTahoe",
