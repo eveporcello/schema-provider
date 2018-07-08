@@ -4,8 +4,6 @@ node_js:
   - 10.6.0
 deploy:
   provider: npm
-  tags: true
-  tag: next
   skip_cleanup: true
   email: alex@moonhighway.com
   api_key:
