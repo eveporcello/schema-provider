@@ -4,8 +4,9 @@ node_js:
   - 10.6.0
 deploy:
   provider: npm
-  skip_cleanup: true
+  tags: true
   tag: next
+  skip_cleanup: true
   email: alex@moonhighway.com
   api_key:
     secure: CLqJ5zkbCAvsRU/bBj+MKB8e0ZZr0nFJ9IfzJb/wd0MufwGGzOz3L0dgY6VhEo8dFnptClP4R2qZ0qXML4FqFmbRaDSOcUOA44fWl4a4rEnbuV5kulcoOB3W+B3wz1pXsefXD4Xl3fLSErJPriNHNLdAHypjDuBl1gvQVTe5RjhQ6g92tK8b+1JRw/VX6ICN0ZTl4gp7japMvu8IDUphpvGhZRrJh3f2PNCK9yfwUiGo6GMv4uuxe8mYF+9omm11D4X5kae91K+WJYj4DGyj4xgUxattP0/aZmNWv+tyJNgb1ZYZOahyR84ZqbxZlDbYgCoTwnWnPxe4I2tar0lLxyFTthplmM+cbMjlNFWyMZEqiFwwzVm7KaVZX0z/2sxalVGjYBRYvH54nBxFQcFigNQukGjN5sNg9FfNn39czKJk7AyceJKRZDL0Fnrpybu+4/1JrhZDo4WipsKl+UI5BGwzV7RI7eiVZzwS5TLuK1oR9sGp3u3amnXvxwyZMHnn9A+g+Ec2HyzM1tuRLU+3v1PsrY7/jnb2wTzeqQJGOMFK+cHBd2ruDGkAJ5ESheC+5NJOMLOjmtk99uO6bxrB55bP0uJodNR6HXFFq6nyI+SACgU5wqXOE9Pq8HvGdtjdnYiGCkcRRm2F+x23N4/8i/AwmnHQesIRHQzBDYx8qVY=
