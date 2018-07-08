@@ -2,7 +2,7 @@
   "name": "@highfivesfoundation/schema-provider",
   "version": "0.0.7",
   "description": "Home of the High Fives Foundation GraphQL Schema.",
-  "main": "server.js",
+  "main": "index.js",
   "author": "Alex Banks @MoonTahoe",
   "license": "MIT",
   "private": false,
