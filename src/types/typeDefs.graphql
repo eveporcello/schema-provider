@@ -6,5 +6,5 @@ type NewsStory {
 }
 
 type Query {
-    allNews: [NewsStory!]!
+    allNews(start: Int count: Int): [NewsStory!]!
 }

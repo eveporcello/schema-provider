@@ -27,6 +27,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "apollo-server": "^2.0.0-rc.5",
     "faker": "^4.1.0",
     "graphql-tag": "^2.9.2"
   },
