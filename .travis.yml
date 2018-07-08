@@ -3,12 +3,6 @@ node_js:
   - 8.11.3
   - 10.6.0
 
-before_install:
-  - npm install -g pr-bumper@^3.0.0
-
-script:
-  - $(npm root -g)/pr-bumper/.travis/maybe-bump-version.sh
-
 deploy:
   provider: npm
   skip_cleanup: true
