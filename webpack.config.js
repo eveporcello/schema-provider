@@ -1,6 +1,9 @@
 var webpack = require("webpack")
+var nodeExternals = require("webpack-node-externals")
 
 module.exports = {
+    target: 'node',
+    externals: [nodeExternals()],
     entry: "./src/index.js",
     output: {
         path: __dirname,
@@ -20,9 +23,10 @@ module.exports = {
                     presets: ['env', 'stage-0']
                 }
             },
-            { 
-              test: /\.graphql?$/, 
-              loader: 'webpack-graphql-loader' 
+            {
+                test: /\.(graphql|gql)$/,
+                exclude: /node_modules/,
+                loader: 'graphql-tag/loader'
             }
         ]
     },

@@ -5,3 +5,4 @@ src/
 bump.js
 webpack.config.js
 yarn.lock
+index.test.js

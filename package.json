@@ -23,9 +23,13 @@
     "prepublish": "yarn build && node bump",
     "build": "webpack -p",
     "pretest": "yarn build",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "faker": "^4.1.0",
+    "graphql-tag": "^2.9.2"
+  },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
@@ -33,8 +37,17 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
+    "jest-cli": "^23.3.0",
+    "jest-transform-graphql": "^2.1.0",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8",
-    "webpack-graphql-loader": "^1.0.0"
+    "webpack-graphql-loader": "^1.0.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "jest": {
+    "transform": {
+      "\\.(gql|graphql)$": "jest-transform-graphql",
+      ".*": "babel-jest"
+    }
   }
 }
