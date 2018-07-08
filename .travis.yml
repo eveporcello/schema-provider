@@ -6,18 +6,8 @@ node_js:
 before_install:
   - npm install -g pr-bumper@^3.0.0
 
-install:
-  - $(npm root -g)/pr-bumper/.travis/maybe-install.sh
-
-before_script:
-  - $(npm root -g)/pr-bumper/.travis/maybe-check-scope.sh
-
 script:
-  - $(npm root -g)/pr-bumper/.travis/maybe-test.sh
   - $(npm root -g)/pr-bumper/.travis/maybe-bump-version.sh
-
-after_success:
-  - $(npm root -g)/pr-bumper/.travis/maybe-publish-coverage.sh
 
 deploy:
   provider: npm
