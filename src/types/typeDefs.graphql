@@ -7,6 +7,7 @@ type NewsStory {
 
 enum TravisAttempts {
     FIRST
+    SECOND
 }
 
 type Query {
