@@ -20,7 +20,7 @@
     "schema"
   ],
   "bin": {
-    "h5-mock-server": "server.js"
+    "h5-mock-server": "src/server.js"
   },
   "scripts": {
     "prepublish": "yarn build && node bump",
