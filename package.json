@@ -27,8 +27,8 @@
     "build": "webpack -p",
     "test": "jest",
     "test:watch": "jest --watch",
-    "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js -e js,graphql,json"
   },
   "dependencies": {
     "apollo-server": "^2.0.0-rc.5",
@@ -45,12 +45,13 @@
     "babel-preset-stage-0": "^6.24.1",
     "jest-cli": "^23.3.0",
     "jest-transform-graphql": "^2.1.0",
+    "nodemon": "^1.18.2",
+    "semantic-release": "^15.6.3",
+    "travis-deploy-once": "^5.0.1",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8",
     "webpack-graphql-loader": "^1.0.0",
-    "webpack-node-externals": "^1.7.2",
-    "travis-deploy-once": "^5.0.1",
-    "semantic-release": "^15.6.3"
+    "webpack-node-externals": "^1.7.2"
   },
   "jest": {
     "transform": {

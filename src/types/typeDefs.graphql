@@ -5,6 +5,14 @@ type NewsStory {
     url: String!
 }
 
+type DonationOption {
+    id: ID!
+    reward: String!
+    price: Float!
+    active: Boolean!
+}
+
 type Query {
     allNews(start: Int count: Int): [NewsStory!]!
+    currentDonationOptions: [DonationOption!]!
 }

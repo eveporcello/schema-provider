@@ -31,4 +31,12 @@ describe('Queries', () => {
         })
     })
 
+    describe('currentDonationOptions - query', () => {
+
+        it('returns 5 options', () => {
+            expect(mocks.Query().currentDonationOptions()).toEqual({ len: 5 })
+        })
+    
+    })
+
 })
