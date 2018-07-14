@@ -65,7 +65,7 @@ const commitChange = () =>
         .then(console.log)
         .then(() => exec(`(cd ${repo} && git add -u)`))
         .then(() => exec(`(cd ${repo} && git commit -m "bump ${npm} schema version to ${version}")`))
-        .then(() => exec(`(cd ${repo} && node ../push_credentials.js | git push origin staging)`))
+        .then(() => exec(`(cd ${repo} && node ../push-credentials.js | git push origin staging)`))
         .catch(exit('error committing the change'))
 
 const removeRepo = () =>
