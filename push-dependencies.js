@@ -34,6 +34,13 @@ const exit = message => error => {
     throw error
 }
 
+const setupCredentials = () => 
+    Promise.resolve(`setting git credentials`)
+        .then(console.log)
+        .then(() => exec(`(cd ${repo} && git config credential.helper store)`))
+        .then(() => exec(`(cd ${repo} && echo "MoonTahoe ${process.env.GITHUB_TOKEN}" | git push ${repoURL})`))
+        .catch(exit('error setting credentials'))
+
 const cloneRepo = () => 
     Promise.resolve(`cloning repo ${repoURL}`)
         .then(console.log)
@@ -68,6 +75,7 @@ const removeRepo = () =>
         .catch(exit('error cleaning up files'))
         
 cloneRepo()
+    .then(() => setupCredentials())
     .then(() => checkForLatest())
     .then(() => matchPackageVersion())
     .then(() => commitChange())
