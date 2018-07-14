@@ -58,7 +58,8 @@ const commitChange = () =>
         .then(console.log)
         .then(() => exec(`(cd ${repo} && git add -u)`))
         .then(() => exec(`(cd ${repo} && git commit -m "bump ${npm} schema version to ${version}")`))
-        .then(() => exec(`(cd ${repo} && echo git push origin staging)`))
+        .then(() => exec(`(cd ${repo} && git push origin staging)`))
+        .then(console.log)
         .catch(exit('error committing the change'))
 
 const removeRepo = () =>
@@ -68,6 +69,12 @@ const removeRepo = () =>
         .catch(exit('error cleaning up files'))
         
 cloneRepo()
+    .then(() => exec(`(cd ${repo} && git config --global user.name`))
+    .then(console.log)
+    .then(() => exec(`(cd ${repo} && git config --global user.email`))
+    .then(console.log)
+    .then(() => exec(`cat ~/.git-credentials`))
+    .then(console.log)
     .then(() => checkForLatest())
     .then(() => matchPackageVersion())
     .then(() => commitChange())
