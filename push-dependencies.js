@@ -37,8 +37,8 @@ const exit = message => error => {
 const setupCredentials = () => 
     Promise.resolve(`setting git credentials`)
         .then(console.log)
-        .then(() => exec(`(cd ${repo} && git config credential.helper store)`))
-        .then(() => exec(`(cd ${repo} && echo "MoonTahoe ${process.env.GITHUB_TOKEN}" | git push ${repoURL})`))
+        .then(() => exec(`(cd ${repo} && git config --global user.name MoonTahoe)`))
+        .then(() => exec(`(cd ${repo} && git config --global user.email alex@moonhighway.com)`))
         .catch(exit('error setting credentials'))
 
 const cloneRepo = () => 
@@ -65,7 +65,7 @@ const commitChange = () =>
         .then(console.log)
         .then(() => exec(`(cd ${repo} && git add -u)`))
         .then(() => exec(`(cd ${repo} && git commit -m "bump ${npm} schema version to ${version}")`))
-        .then(() => exec(`(cd ${repo} && git push origin staging)`))
+        .then(() => exec(`(cd ${repo} && node ../push_credentials.js | git push origin staging)`))
         .catch(exit('error committing the change'))
 
 const removeRepo = () =>
