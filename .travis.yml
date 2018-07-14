@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - 8.11.3
   - 10.6.0
+after_deploy:
+  - node puch-dependencies -o https://github.com/HighFivesFoundation -r graphql-lambda -n @highfivesfoundation/schema-provider 
 deploy:
   provider: npm
   skip_cleanup: true
