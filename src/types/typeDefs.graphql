@@ -15,4 +15,5 @@ type DonationOption {
 type Query {
     allNews(start: Int count: Int): [NewsStory!]!
     currentDonationOptions: [DonationOption!]!
+    testDeploy: String!
 }
