@@ -1,1 +1,0 @@
-process.stdout.write(process.env.GITHUB_KEY + ' ' + process.env.GITHUB_TOKEN)
