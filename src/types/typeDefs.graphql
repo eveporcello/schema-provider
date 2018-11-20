@@ -1,18 +1,24 @@
 type NewsStory {
-    id: ID!
-    title: String!
-    description: String
-    url: String!
+  id: ID!
+  title: String!
+  description: String
+  url: String!
 }
 
 type DonationOption {
-    id: ID!
-    reward: String!
-    price: Float!
-    active: Boolean!
+  id: ID!
+  reward: String!
+  price: Float!
+  active: Boolean!
+}
+
+type Member {
+  email: ID!
+  name: String
 }
 
 type Query {
-    allNews(start: Int count: Int): [NewsStory!]!
-    currentDonationOptions: [DonationOption!]!
+  me: Member
+  allNews(start: Int, count: Int): [NewsStory!]!
+  currentDonationOptions: [DonationOption!]!
 }

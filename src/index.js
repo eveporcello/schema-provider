@@ -7,4 +7,4 @@ export const mocks = allMocks
 
 const resolvers = {}
 
-export const mockH5Server = new ApolloServer({typeDefs,resolvers,mocks})
+export const mockH5Server = new ApolloServer({ typeDefs, resolvers, mocks })

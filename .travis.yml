@@ -2,8 +2,16 @@ language: node_js
 node_js:
   - 8.11.3
   - 10.6.0
+before_script:
+  - npm run build 
+  - npm start &
+after_script:
+  - npm install -g apollo
+  - apollo schema:check --endpoint http://localhost:4000 --key $APOLLO_ENGINE_API_KEY     
 after_deploy:
   - node push-dependencies -o https://github.com/HighFivesFoundation -r graphql-lambda -n @highfivesfoundation/schema-provider 
+  - npm install -g apollo
+  - apollo schema:publish --endpoint http://localhost:4000 --key $APOLLO_ENGINE_API_KEY
 deploy:
   provider: npm
   skip_cleanup: true
