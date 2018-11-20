@@ -3,15 +3,12 @@ node_js:
   - 8.11.3
   - 10.6.0
 before_script:
-  - npm run build 
+  - npm run build
   - npm start &
 after_script:
   - npm install -g apollo
-  - apollo schema:check --endpoint http://localhost:4000 --key $APOLLO_ENGINE_API_KEY     
-after_deploy:
-  - npm install -g apollo
-  - apollo schema:publish --endpoint http://localhost:4000 --key $APOLLO_ENGINE_API_KEY
-  - node push-dependencies -o https://github.com/HighFivesFoundation -r graphql-lambda -n @highfivesfoundation/schema-provider 
+  - apollo schema:check --endpoint http://localhost:4000 --key
+    $APOLLO_ENGINE_API_KEY
 deploy:
   provider: npm
   skip_cleanup: true
@@ -20,5 +17,8 @@ deploy:
     secure: hvMgI96YI1xJrRVWLmJWv1cXW8AOhX+UqZvDkhkgTb9SWa0ZU5Zwz+E4v+CYCrQ6+ZTOM3Vtto51TvKrDkhvF0TLSYb+kSh9bMkgJBoABG14LoA0YCzPGRwEyl1sequKRMd2+HhwhlLHy+qYUdFa6l4l/99MxrCMR/9EzJhYubQ3chRiC6P5DYLcejM98I6SkqrVMsB9tTBXJBzg0Z2hSJ2LD7Q5ei2RXy7NwO0ujC1KayWh3+N4jGEGeYvKmuav/6Z5OuLGR30+3DAVbd/iijE2IT6UZ/ugIMVXUEHZUKpOkDW9Jiq2T2hcqCk0Op1rVUusCeQMTShMu0XrgiDTiwUd1tEeeis9HJo0lK8/ZnTFJkOjmbNmEia7ccCsDMhXX7LjgCpyan/IhD2UTFu7tj4ewY6ZnPMrHYKZyEwCAGW/+/pZl5gIoiUrzRN/lPmohy2jenJtaJLfKtAj5XzDtAthMZyOaE/kj7L6PPWQ4ECAHXnBA9QG3TEPJAFkAa9NOfUxWW17RTNf9LWP01jRmpg1hgOpKNNWkfLGCyIA0srpGWKDNl3fcnGTQPAuwCmBbre+f4p6F9THi1f0Dp+yMhKFBGe1QZ1kfv8b2gXzA9W9dhbbotLbFa0GnknvClKw6DIwEOZns/RNNKdNddqby0HBtg/PLruLWgOKWR9HzdA=
   on:
     repo: HighFivesFoundation/schema-provider
-after_deploy: 
+after_deploy:
+  - npm install -g apollo
+  - apollo schema:publish --endpoint http://localhost:4000 --key
+    $APOLLO_ENGINE_API_KEY
   - node ./deploy_scripts/post_deploy.js
