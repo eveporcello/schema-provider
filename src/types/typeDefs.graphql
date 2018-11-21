@@ -196,3 +196,7 @@ type Query {
   currentDonationOptions: [DonationOption!]!
   allApplications: [Application!]!
 }
+
+type Mutation {
+  register(email: ID!, password: String!): Member!
+}
