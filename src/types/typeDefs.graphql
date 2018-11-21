@@ -1,3 +1,174 @@
+type Application {
+  id: ID!
+  member: Member!
+  demographics: DemographicPage
+  guidelines: GuidelinesPage
+  injuryInfo: InjuryInfoPage
+  icuInfo: ICUPage
+  circumstances: CircumstancesPage
+  healingNetwork: HealingNetworkPage
+  livingExpenses: LivingExpensesPage
+  insurance: InsurancePage
+  adaptiveEquipment: AdaptiveEquipmentPage
+  winterEquipment: WinterEquipmentPage
+  programs: ProgramsPage
+  health: HealthPage
+  travel: TravelPage
+  personalInfo: PersonalInfoPage
+}
+
+type ApplicationStatus {
+  progress: Int
+  complete: Boolean
+}
+
+type DemographicPage implements ApplicationStep {
+  complete: Boolean
+  dateOfBirth: String
+  address1: String
+  address2: String
+  city: String
+  state: String
+  zip: String
+  phone: String
+  gender: String
+  ethnicity: String
+  injuryDate: String
+  tshirt: ShirtSize
+}
+
+type GuidelinesPage implements ApplicationStep {
+  complete: Boolean
+  timesApplied: Int!
+  usOrCanadaResident: Boolean!
+  degenerativeDisease: Boolean!
+  healthCoverage: Boolean!
+  returnToSports: Boolean!
+}
+
+type InjuryInfoPage implements ApplicationStep {
+  complete: Boolean
+  injuryType: InjuryType!
+  injuryLevel: InjuryLevel
+  spinalInjuryType: SpinalInjuryType
+  injuryCause: InjuryCause!
+  description: String!
+  recoveryGoals: String!
+  reachingRecoveryGoals: String!
+}
+
+type ICUPage implements ApplicationStep {
+  complete: Boolean
+  daysInICU: Int!
+  nameOfHospital: String
+  daysInInpatientRehab: Int!
+  nameOfRehabHospital: String
+}
+
+type CircumstancesPage implements ApplicationStep {
+  complete: Boolean
+  participatingInSport: Boolean
+  notParticipatingInSport: Boolean
+}
+
+type HealingNetworkPage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type LivingExpensesPage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type InsurancePage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type AdaptiveEquipmentPage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type WinterEquipmentPage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type ProgramsPage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type HealthPage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type TravelPage implements ApplicationStep {
+  complete: Boolean
+  resources: String
+  amount: Int
+}
+
+type PersonalInfoPage implements ApplicationStep {
+  complete: Boolean
+  paidProfessional: Boolean!
+  club: Boolean!
+  socialSecurity: Boolean!
+  adjustedGrossIncome: Int!
+}
+
+interface ApplicationStep {
+  complete: Boolean
+}
+
+enum ShirtSize {
+  SMALL
+  MEDIUM
+  LARGE
+  XL
+  XXL
+}
+
+enum InjuryType {
+  SPINALCORD
+  TBI
+  AMPUTATION
+  OTHER
+}
+
+enum InjuryLevel {
+  C1C7
+  T1T6
+  T7T12
+  L1S1
+}
+
+enum SpinalInjuryType {
+  COMPLETEPARA
+  INCOMPLETEPARA
+  COMPLETETETRA
+  INCOMPLETETETRA
+}
+
+enum InjuryCause {
+  WINTERACTIONSPORT
+  SUMMERACTIONSPORT
+  MOTORSPORT
+  MILITARYCOMBAT
+  CARACCIDENT
+  OTHER
+}
+
 type NewsStory {
   id: ID!
   title: String!
@@ -15,10 +186,13 @@ type DonationOption {
 type Member {
   email: ID!
   name: String
+  application: Application!
+  applicationStatus: ApplicationStatus!
 }
 
 type Query {
   me: Member
   allNews(start: Int, count: Int): [NewsStory!]!
   currentDonationOptions: [DonationOption!]!
+  allApplications: [Application!]!
 }
